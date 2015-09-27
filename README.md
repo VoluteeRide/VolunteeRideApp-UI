@@ -1,2 +1,2 @@
-# VolunteeRideApp-UI
-This repo maintains the UI code base for VolunteeRide Applicaiton
+# VolunteeRideApp-UI-iOS
+This repo maintains the IOS-UI code base for VolunteeRide Applicaiton
