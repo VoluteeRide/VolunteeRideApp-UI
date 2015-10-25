@@ -49,3 +49,6 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+
+Pods/
+#Podfile.lock  # changed my mind on Podfile.lock
