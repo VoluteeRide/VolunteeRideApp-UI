@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-514" y="364"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -67,6 +67,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="fOA-Zx-PA3" kind="show" identifier="ShowSignUp" id="gfJ-NH-0Kv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftc-mv-jMu">
                                 <rect key="frame" x="124" y="283" width="352" height="34"/>
@@ -104,6 +107,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="287" y="364"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ehi-Tl-mSp">
+            <objects>
+                <viewController id="fOA-Zx-PA3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4ng-Ye-0rf"/>
+                        <viewControllerLayoutGuide type="bottom" id="vwd-6S-Zho"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hg3-X7-Kuc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.89382102272727271" green="0.89382102272727271" blue="0.89382102272727271" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zsE-oo-uDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1138" y="-329"/>
         </scene>
     </scenes>
 </document>
