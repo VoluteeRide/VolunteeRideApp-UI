@@ -32,12 +32,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
     
     switch (section) {
         case 0:
@@ -63,6 +61,7 @@
     static NSString *CellIdentifierEmail = @"Email";
     static NSString *CellIdentifierPassword = @"Password";
     static NSString *CellIdentifierSubmit = @"Submit";
+    static NSString *CellIdentifierRegistration = @"Registration";
     
     NSInteger section = [indexPath section];
     
@@ -96,28 +95,6 @@
         case 1:
             if (indexPath.row == 0) {
                 
-                cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierEmail];
-                
-                if(!cell)
-                {
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierEmail];
-                }
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            }
-            
-            if (indexPath.row == 1) {
-                
-                cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierPassword];
-                
-                if(!cell)
-                {
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPassword];
-                }
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            }
-            
-            if (indexPath.row == 0) {
-                
                 cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSubmit];
                 
                 if(!cell)
@@ -125,6 +102,21 @@
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierSubmit];
                 }
             }
+            
+            break;
+        
+        case 2:
+            if (indexPath.row == 0) {
+                
+                cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierRegistration];
+                
+                if(!cell)
+                {
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierRegistration];
+                }
+            }
+            
+            break;
             
         default:
             break;
