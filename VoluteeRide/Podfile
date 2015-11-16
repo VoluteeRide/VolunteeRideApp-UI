@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'VoluteeRide' do
   pod 'AFNetworking', '~> 2.6'
+	pod 'XLForm', '~> 3.0'
 end
