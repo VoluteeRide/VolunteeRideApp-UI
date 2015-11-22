@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GUk-Gv-Uk0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GUk-Gv-Uk0">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="FDP-z6-YBq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="adp-8x-9lv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="GUk-Gv-Uk0" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V4Z-87-wFi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -20,6 +19,7 @@
                         <segue destination="sq2-vK-0SJ" kind="relationship" relationship="rootViewController" id="y9Y-L0-Lq5"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adp-8x-9lv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-514" y="364"/>
         </scene>
@@ -108,7 +108,7 @@
                                 <rect key="frame" x="0.0" y="273.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bSY-Z3-lGX" id="s2Q-dv-X2Y">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9f-KP-wx5">
@@ -132,10 +132,10 @@
                                 <animations/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Registration" id="ARc-wR-6Yd" userLabel="Registration">
-                                <rect key="frame" x="0.0" y="318" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="317.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ARc-wR-6Yd" id="SmW-9k-fek">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nd2-F3-d9M">
@@ -157,6 +157,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="P2v-Ni-KiV" kind="show" id="JeH-rw-nbD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -170,6 +173,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5j-Al-7ZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="280" y="364"/>
+        </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="qlY-Pg-2EM">
+            <objects>
+                <viewController storyboardIdentifier="RegistrationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P2v-Ni-KiV" customClass="RegistrationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xd6-xI-mx5"/>
+                        <viewControllerLayoutGuide type="bottom" id="arz-8j-iOR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oYm-1G-YAg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qEF-u6-h0t">
+                                <rect key="frame" x="166" y="72" width="267" height="29"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="267" id="76i-zx-rPd"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Ride Seeker"/>
+                                    <segment title="Volunteer"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="KeI-1S-lwF">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <animations/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qEF-u6-h0t" firstAttribute="centerX" secondItem="oYm-1G-YAg" secondAttribute="centerX" id="ENk-x5-S27"/>
+                            <constraint firstItem="qEF-u6-h0t" firstAttribute="top" secondItem="Xd6-xI-mx5" secondAttribute="bottom" constant="8" symbolic="YES" id="NyK-HN-eGv"/>
+                            <constraint firstItem="KeI-1S-lwF" firstAttribute="top" secondItem="qEF-u6-h0t" secondAttribute="bottom" constant="8" symbolic="YES" id="T0Z-i7-z8p"/>
+                            <constraint firstItem="KeI-1S-lwF" firstAttribute="leading" secondItem="oYm-1G-YAg" secondAttribute="leading" id="Vs5-Bk-dvL"/>
+                            <constraint firstItem="KeI-1S-lwF" firstAttribute="centerX" secondItem="qEF-u6-h0t" secondAttribute="centerX" id="q44-rC-gqw"/>
+                            <constraint firstItem="KeI-1S-lwF" firstAttribute="bottom" secondItem="arz-8j-iOR" secondAttribute="top" id="rdA-Qo-PbE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="KeI-1S-lwF" id="ZDc-uW-ECr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czx-Rp-3Bw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169" y="876"/>
         </scene>
     </scenes>
 </document>

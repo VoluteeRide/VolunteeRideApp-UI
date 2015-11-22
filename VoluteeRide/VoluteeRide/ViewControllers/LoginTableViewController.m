@@ -8,6 +8,11 @@
 
 #import "LoginTableViewController.h"
 
+static NSString *CellIdentifierEmail = @"Email";
+static NSString *CellIdentifierPassword = @"Password";
+static NSString *CellIdentifierSubmit = @"Submit";
+static NSString *CellIdentifierRegistration = @"Registration";
+
 @interface LoginTableViewController ()
 
 @end
@@ -58,10 +63,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     UITableViewCell *cell;
-    static NSString *CellIdentifierEmail = @"Email";
-    static NSString *CellIdentifierPassword = @"Password";
-    static NSString *CellIdentifierSubmit = @"Submit";
-    static NSString *CellIdentifierRegistration = @"Registration";
     
     NSInteger section = [indexPath section];
     

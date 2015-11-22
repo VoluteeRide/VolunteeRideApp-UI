@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A780C0001BF93BB90094CBBD /* MiscViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A780BFFF1BF93BB90094CBBD /* MiscViewController.m */; };
+		A79B1DD51C02769B00923902 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DD41C02769B00923902 /* RegistrationViewController.m */; };
+		A79B1DDC1C0282C400923902 /* OwnedVehicles.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DD91C0282C400923902 /* OwnedVehicles.m */; };
+		A79B1DDD1C0282C400923902 /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DDB1C0282C400923902 /* Registration.m */; };
 		A7D6075F1BDD866000FA0E9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D6075E1BDD866000FA0E9A /* main.m */; };
 		A7D607621BDD866000FA0E9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D607611BDD866000FA0E9A /* AppDelegate.m */; };
 		A7D607681BDD866000FA0E9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7D607661BDD866000FA0E9A /* Main.storyboard */; };
@@ -15,7 +18,6 @@
 		A7D6076D1BDD866000FA0E9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7D6076B1BDD866000FA0E9A /* LaunchScreen.storyboard */; };
 		A7D607781BDD866000FA0E9A /* VoluteeRideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D607771BDD866000FA0E9A /* VoluteeRideTests.m */; };
 		A7D607831BDD866000FA0E9A /* VoluteeRideUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D607821BDD866000FA0E9A /* VoluteeRideUITests.m */; };
-		A7D607981BDDBE1500FA0E9A /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D607951BDDBE1500FA0E9A /* SignUpViewController.m */; };
 		A7FE69C21BF963EE0028C9F4 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FE69C11BF963EE0028C9F4 /* LoginTableViewController.m */; };
 		D518B0D88AFAC9DC9310B271 /* Pods_VoluteeRide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C86F68351F388604ACFCCB /* Pods_VoluteeRide.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,12 @@
 /* Begin PBXFileReference section */
 		A780BFFE1BF93BB90094CBBD /* MiscViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscViewController.h; sourceTree = "<group>"; };
 		A780BFFF1BF93BB90094CBBD /* MiscViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiscViewController.m; sourceTree = "<group>"; };
+		A79B1DD31C02769B00923902 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		A79B1DD41C02769B00923902 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		A79B1DD81C0282C400923902 /* OwnedVehicles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnedVehicles.h; sourceTree = "<group>"; };
+		A79B1DD91C0282C400923902 /* OwnedVehicles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedVehicles.m; sourceTree = "<group>"; };
+		A79B1DDA1C0282C400923902 /* Registration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Registration.h; sourceTree = "<group>"; };
+		A79B1DDB1C0282C400923902 /* Registration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registration.m; sourceTree = "<group>"; };
 		A7D6075A1BDD866000FA0E9A /* VoluteeRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoluteeRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D6075E1BDD866000FA0E9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A7D607601BDD866000FA0E9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,8 +62,6 @@
 		A7D6077E1BDD866000FA0E9A /* VoluteeRideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoluteeRideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D607821BDD866000FA0E9A /* VoluteeRideUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoluteeRideUITests.m; sourceTree = "<group>"; };
 		A7D607841BDD866000FA0E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A7D607941BDDBE1500FA0E9A /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		A7D607951BDDBE1500FA0E9A /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		A7FE69C01BF963EE0028C9F4 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		A7FE69C11BF963EE0028C9F4 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
 		B88456F079C074B15FAF4B9F /* Pods-VoluteeRide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoluteeRide.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoluteeRide/Pods-VoluteeRide.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +95,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A79B1DD61C0282C400923902 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A79B1DD81C0282C400923902 /* OwnedVehicles.h */,
+				A79B1DD91C0282C400923902 /* OwnedVehicles.m */,
+				A79B1DDA1C0282C400923902 /* Registration.h */,
+				A79B1DDB1C0282C400923902 /* Registration.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A7D607511BDD866000FA0E9A = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +131,7 @@
 		A7D6075C1BDD866000FA0E9A /* VoluteeRide */ = {
 			isa = PBXGroup;
 			children = (
+				A79B1DD61C0282C400923902 /* Model */,
 				A7D607931BDDBE1500FA0E9A /* ViewControllers */,
 				A7D607601BDD866000FA0E9A /* AppDelegate.h */,
 				A7D607611BDD866000FA0E9A /* AppDelegate.m */,
@@ -157,10 +175,10 @@
 			children = (
 				A780BFFE1BF93BB90094CBBD /* MiscViewController.h */,
 				A780BFFF1BF93BB90094CBBD /* MiscViewController.m */,
-				A7D607941BDDBE1500FA0E9A /* SignUpViewController.h */,
-				A7D607951BDDBE1500FA0E9A /* SignUpViewController.m */,
 				A7FE69C01BF963EE0028C9F4 /* LoginTableViewController.h */,
 				A7FE69C11BF963EE0028C9F4 /* LoginTableViewController.m */,
+				A79B1DD31C02769B00923902 /* RegistrationViewController.h */,
+				A79B1DD41C02769B00923902 /* RegistrationViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -363,9 +381,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7D607981BDDBE1500FA0E9A /* SignUpViewController.m in Sources */,
+				A79B1DDC1C0282C400923902 /* OwnedVehicles.m in Sources */,
 				A7FE69C21BF963EE0028C9F4 /* LoginTableViewController.m in Sources */,
+				A79B1DDD1C0282C400923902 /* Registration.m in Sources */,
 				A7D607621BDD866000FA0E9A /* AppDelegate.m in Sources */,
+				A79B1DD51C02769B00923902 /* RegistrationViewController.m in Sources */,
 				A7D6075F1BDD866000FA0E9A /* main.m in Sources */,
 				A780C0001BF93BB90094CBBD /* MiscViewController.m in Sources */,
 			);

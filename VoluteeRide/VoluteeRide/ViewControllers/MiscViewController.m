@@ -7,7 +7,7 @@
 //
 
 #import "MiscViewController.h"
-#import "SignUpViewController.h"
+#import "RegistrationViewController.h"
 #import "XLForm.h"
 
 @interface MiscViewController ()
@@ -77,7 +77,7 @@ NSString * const kValidationPassword = @"kPassword";
     section = [XLFormSectionDescriptor formSectionWithTitle:@"Not Registered?"];
     [formDescriptor addFormSection:section];
     row = [XLFormRowDescriptor formRowDescriptorWithTag:kCustomSelectors rowType:XLFormRowDescriptorTypeButton title:@"Registeration"];
-    row.action.viewControllerClass = [SignUpViewController class];
+    row.action.viewControllerClass = [RegistrationViewController class];
     [section addFormRow:row];
 
     

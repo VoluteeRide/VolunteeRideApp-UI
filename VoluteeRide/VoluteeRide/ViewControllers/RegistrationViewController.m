@@ -1,22 +1,29 @@
 //
-//  SignUpViewController.m
+//  RegistrationViewController.m
 //  VoluteeRide
 //
-//  Created by Karim Abdul on 10/25/15.
+//  Created by Karim Abdul on 11/22/15.
 //  Copyright © 2015 Karim Abdul. All rights reserved.
 //
 
-#import "SignUpViewController.h"
+#import "RegistrationViewController.h"
 
-@interface SignUpViewController ()
+@interface RegistrationViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation SignUpViewController
+@implementation RegistrationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"Registration";
+    
+    UIColor *backgroundColor = [self.tableView backgroundColor];
+    
+    [self.view setBackgroundColor:backgroundColor];
 }
 
 - (void)didReceiveMemoryWarning {
