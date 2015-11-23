@@ -8,6 +8,8 @@
 
 #import "RegistrationViewController.h"
 
+static NSString *CellIdentifierUsername = @"Username";
+
 @interface RegistrationViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -30,6 +32,48 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    switch (section) {
+            
+        default:
+            return 1;
+            break;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell;
+    NSInteger row = [indexPath row];
+    
+    switch (row) {
+        case 0:
+            cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierUsername];
+            
+            if(!cell)
+            {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierUsername];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    // Configure the cell...
+    
+    return cell;
+}
+
+
 
 /*
 #pragma mark - Navigation

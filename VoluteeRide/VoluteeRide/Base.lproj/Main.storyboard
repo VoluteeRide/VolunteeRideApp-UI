@@ -201,6 +201,36 @@
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <animations/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Username" id="zY4-J1-yiH" userLabel="Username">
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zY4-J1-yiH" id="LM1-3m-8tk">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HXX-eR-irG">
+                                                    <rect key="frame" x="16" y="7" width="551" height="30"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="HXX-eR-irG" firstAttribute="centerY" secondItem="LM1-3m-8tk" secondAttribute="centerY" id="Di5-rs-RkD"/>
+                                                <constraint firstAttribute="trailing" secondItem="HXX-eR-irG" secondAttribute="trailing" constant="33" id="IDw-fg-m0k"/>
+                                                <constraint firstItem="HXX-eR-irG" firstAttribute="leading" secondItem="LM1-3m-8tk" secondAttribute="leadingMargin" constant="8" id="Rch-7v-0Yg"/>
+                                                <constraint firstItem="HXX-eR-irG" firstAttribute="top" secondItem="LM1-3m-8tk" secondAttribute="topMargin" constant="-1" id="yj2-ww-34W"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="P2v-Ni-KiV" id="7Bk-Oo-cfj"/>
+                                    <outlet property="delegate" destination="P2v-Ni-KiV" id="B42-p9-V7q"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
