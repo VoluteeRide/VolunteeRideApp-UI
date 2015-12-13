@@ -152,6 +152,7 @@
 		A7D607511BDD866000FA0E9A = {
 			isa = PBXGroup;
 			children = (
+				A7D607931BDDBE1500FA0E9A /* ViewControllers */,
 				A79B1DDE1C028AEE00923902 /* Model */,
 				A7D6075C1BDD866000FA0E9A /* VoluteeRide */,
 				A7D607761BDD866000FA0E9A /* VoluteeRideTests */,
@@ -175,7 +176,6 @@
 		A7D6075C1BDD866000FA0E9A /* VoluteeRide */ = {
 			isa = PBXGroup;
 			children = (
-				A7D607931BDDBE1500FA0E9A /* ViewControllers */,
 				A7D607601BDD866000FA0E9A /* AppDelegate.h */,
 				A7D607611BDD866000FA0E9A /* AppDelegate.m */,
 				A7D607661BDD866000FA0E9A /* Main.storyboard */,
@@ -223,7 +223,8 @@
 				A79B1DD31C02769B00923902 /* RegistrationViewController.h */,
 				A79B1DD41C02769B00923902 /* RegistrationViewController.m */,
 			);
-			path = ViewControllers;
+			name = ViewControllers;
+			path = VoluteeRide/ViewControllers;
 			sourceTree = "<group>";
 		};
 		B7850A7757E86FBDA8F1B5C6 /* Pods */ = {
@@ -578,6 +579,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unicorn.VoluteeRide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "42aec482-de3a-4f19-a3fa-95b91e7afac4";
 			};
 			name = Debug;
 		};
@@ -590,6 +592,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unicorn.VoluteeRide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "42aec482-de3a-4f19-a3fa-95b91e7afac4";
 			};
 			name = Release;
 		};
