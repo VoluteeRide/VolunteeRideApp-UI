@@ -455,18 +455,42 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Register" id="TQP-qc-n5z" userLabel="Register">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JKLocation" id="omq-4U-qcU" userLabel="JKLocation">
                                         <rect key="frame" x="0.0" y="533.5" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TQP-qc-n5z" id="FA3-b5-avO">
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="omq-4U-qcU" id="WLt-xT-a4g">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="du0-jO-FvK" userLabel="Register">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jamat Khana Location" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ofP-bU-2Oa">
+                                                    <rect key="frame" x="16" y="7" width="551" height="30"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="ofP-bU-2Oa" firstAttribute="centerY" secondItem="WLt-xT-a4g" secondAttribute="centerY" id="Dse-Cm-JFv"/>
+                                                <constraint firstItem="ofP-bU-2Oa" firstAttribute="top" secondItem="WLt-xT-a4g" secondAttribute="topMargin" constant="-1" id="EsW-L3-DCC"/>
+                                                <constraint firstItem="ofP-bU-2Oa" firstAttribute="leading" secondItem="WLt-xT-a4g" secondAttribute="leadingMargin" constant="8" id="WYZ-tV-wKa"/>
+                                                <constraint firstAttribute="trailing" secondItem="ofP-bU-2Oa" secondAttribute="trailing" constant="33" id="uQb-Di-Gc6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Register" id="LSS-qu-A0J" userLabel="Register">
+                                        <rect key="frame" x="0.0" y="577.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LSS-qu-A0J" id="TJ7-aK-wcj">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAe-OG-YVe" userLabel="Register">
                                                     <rect key="frame" x="225" y="11" width="149" height="21"/>
                                                     <animations/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="149" id="bbT-Pf-4or"/>
+                                                        <constraint firstAttribute="width" constant="149" id="ieb-8d-KdG"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -475,9 +499,9 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="du0-jO-FvK" firstAttribute="centerY" secondItem="FA3-b5-avO" secondAttribute="centerY" id="O6h-nI-LRY"/>
-                                                <constraint firstItem="du0-jO-FvK" firstAttribute="top" secondItem="FA3-b5-avO" secondAttribute="topMargin" constant="3" id="dEX-dD-SX1"/>
-                                                <constraint firstItem="du0-jO-FvK" firstAttribute="centerX" secondItem="FA3-b5-avO" secondAttribute="centerX" constant="-0.5" id="i3Z-bu-Zro"/>
+                                                <constraint firstItem="aAe-OG-YVe" firstAttribute="centerY" secondItem="TJ7-aK-wcj" secondAttribute="centerY" id="FGr-tA-jBz"/>
+                                                <constraint firstItem="aAe-OG-YVe" firstAttribute="centerX" secondItem="TJ7-aK-wcj" secondAttribute="centerX" constant="-0.5" id="FY5-wU-snZ"/>
+                                                <constraint firstItem="aAe-OG-YVe" firstAttribute="top" secondItem="TJ7-aK-wcj" secondAttribute="topMargin" constant="3" id="u1F-d5-3nF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>

@@ -23,6 +23,9 @@ static NSString *CellIdentifierCapacity = @"Capacity";
 static NSString *CellIdentifierType = @"Type";
 static NSString *CellIdentifierColor = @"Color";
 
+//Jamat Khana Location Idenfifier
+static NSString *CellIdentifierJKLocation = @"JKLocation";
+
 //Registration Identifier
 static NSString *CellIdentifierRegister = @"Register";
 
@@ -55,9 +58,9 @@ static NSString *CellIdentifierRegister = @"Register";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.userSegmentControl.selectedSegmentIndex == 0) {
-        return 2;
-    } else if (self.userSegmentControl.selectedSegmentIndex == 1 || self.userSegmentControl.selectedSegmentIndex == 2) {
         return 3;
+    } else if (self.userSegmentControl.selectedSegmentIndex == 1 || self.userSegmentControl.selectedSegmentIndex == 2) {
+        return 4;
     }
     return 0;
 }
@@ -70,6 +73,9 @@ static NSString *CellIdentifierRegister = @"Register";
                 return 6;
                 break;
             case 1:
+                return 1;
+                break;
+            case 2:
                 return 1;
                 break;
             default:
@@ -86,6 +92,9 @@ static NSString *CellIdentifierRegister = @"Register";
                 return 5;
                 break;
             case 2:
+                return 1;
+                break;
+            case 3:
                 return 1;
                 break;
             default:
@@ -183,6 +192,24 @@ static NSString *CellIdentifierRegister = @"Register";
             
             switch (row) {
                 case 0:
+                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
+                    
+                    if(!cell)
+                    {
+                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
+                    }
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        else if (section == 2) {
+            
+            switch (row) {
+                case 0:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierRegister];
                     
                     if(!cell)
@@ -197,6 +224,7 @@ static NSString *CellIdentifierRegister = @"Register";
                     break;
             }
         }
+
     }
     
     else if (self.userSegmentControl.selectedSegmentIndex == 1 || self.userSegmentControl.selectedSegmentIndex == 2) {
@@ -343,6 +371,26 @@ static NSString *CellIdentifierRegister = @"Register";
             
             switch (row) {
                 case 0:
+                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
+                    
+                    if(!cell)
+                    {
+                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
+                    }
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    
+                    break;
+                    
+                default:
+                    break;
+            }
+
+        }
+    
+        else if (section == 3) {
+            
+            switch (row) {
+                case 0:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierRegister];
                     
                     if(!cell)
@@ -356,9 +404,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 default:
                     break;
             }
-
+            
         }
-        
     }
     
     // Configure the cell...
@@ -376,6 +423,9 @@ static NSString *CellIdentifierRegister = @"Register";
             case 0:
                 sectionName = @"Personal Information";
                 break;
+            case 1:
+                sectionName = @"Choose Jamat Khana Location";
+                break;
             default:
                 sectionName = @"";
                 break;
@@ -390,11 +440,13 @@ static NSString *CellIdentifierRegister = @"Register";
             case 1:
                 sectionName = @"Vehicle Information";
                 break;
+            case 2:
+                sectionName = @"Choose Jamat Khana Location";
+                break;
             default:
                 sectionName = @"";
                 break;
         }
-
     }
     
     return sectionName;
