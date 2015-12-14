@@ -10,6 +10,7 @@
 #import "VRRequestor.h"
 #import "JKCenterLocation.h"
 #import "MBProgressHUD.h"
+#import "JKCenterLocationTableViewCell.h"
 
 //Personal Info Identifiers
 static NSString *CellIdentifierUsername = @"Username";
@@ -32,11 +33,14 @@ static NSString *CellIdentifierJKLocation = @"JKLocation";
 //Registration Identifier
 static NSString *CellIdentifierRegister = @"Register";
 
-@interface RegistrationViewController ()
+@interface RegistrationViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *userSegmentControl;
 @property (nonatomic, strong) NSArray *centerLocations;
+@property (nonatomic, strong) UIPickerView *centerLocationsPickerView;
+@property (weak, nonatomic) IBOutlet UITextField *locationTextField;
+
 
 @end
 
@@ -199,14 +203,21 @@ static NSString *CellIdentifierRegister = @"Register";
         else if (section == 1) {
             
             switch (row) {
-                case 0:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
+                case 0:{
+                    JKCenterLocationTableViewCell *jkLocationTableViewCell;
+                    jkLocationTableViewCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
                     
                     if(!cell)
                     {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
+                        JKCenterLocationTableViewCell *jkLocationTableViewCell = [[JKCenterLocationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
+                        jkLocationTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+                        
+                        
                     }
-                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    jkLocationTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    jkLocationTableViewCell.centerLocationTextField.inputView = self.centerLocationsPickerView;
+                    return jkLocationTableViewCell;
+                }
                     
                     break;
                     
@@ -378,15 +389,21 @@ static NSString *CellIdentifierRegister = @"Register";
         else if (section == 2) {
             
             switch (row) {
-                case 0:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
+                case 0: {
+                    JKCenterLocationTableViewCell *jkLocationTableViewCell;
+                    jkLocationTableViewCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
                     
                     if(!cell)
                     {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
+                        JKCenterLocationTableViewCell *jkLocationTableViewCell = [[JKCenterLocationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
+                        jkLocationTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    
                     }
-                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                    
+                    jkLocationTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    jkLocationTableViewCell.centerLocationTextField.inputView = self.centerLocationsPickerView;
+                    return jkLocationTableViewCell;
+                }
                     break;
                     
                 default:
@@ -503,6 +520,33 @@ static NSString *CellIdentifierRegister = @"Register";
     }
     
     self.centerLocations = [jkLocations copy];
+}
+
+- (UIPickerView*)centerLocationsPickerView {
+    
+    if (!_centerLocationsPickerView) {
+        _centerLocationsPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 216.0)];
+        [_centerLocationsPickerView setDataSource: self];
+        [_centerLocationsPickerView setDelegate: self];
+        _centerLocationsPickerView.showsSelectionIndicator = YES;
+    }
+    
+    return _centerLocationsPickerView;
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [self.centerLocations count];
+}
+
+// The data to return for the row and component (column) that's being passed in
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    JKCenterLocation *jkLocation = (JKCenterLocation*)[self.centerLocations objectAtIndex:row];
+    return jkLocation.name;
 }
 
 @end
