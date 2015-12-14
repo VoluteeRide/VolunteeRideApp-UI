@@ -11,11 +11,11 @@
 
 @interface Location : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, assign) id streetAddress;
-@property (nonatomic, assign) id locationName;
+@property (nonatomic, strong) NSString *streetAddress;
+@property (nonatomic, strong) NSString *locationName;
 @property (nonatomic, strong) NSString *state;
 @property (nonatomic, assign) double houseNumber;
-@property (nonatomic, assign) id zipcode;
+@property (nonatomic, strong) NSString *zipcode;
 @property (nonatomic, strong) NSString *city;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;

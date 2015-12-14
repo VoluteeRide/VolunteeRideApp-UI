@@ -14,13 +14,13 @@
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *createdDatetime;
-@property (nonatomic, strong) NSString *internalBaseClassIdentifier;
+@property (nonatomic, strong) NSString *rideSeekerIdentifier;
 @property (nonatomic, strong) NSString *centerId;
 @property (nonatomic, strong) NSArray *userRoles;
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, assign) double version;
 @property (nonatomic, strong) NSString *email;
-@property (nonatomic, assign) id ownedVehicles;
+@property (nonatomic, strong) NSArray *ownedVehicles;
 @property (nonatomic, strong) NSString *lastName;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;

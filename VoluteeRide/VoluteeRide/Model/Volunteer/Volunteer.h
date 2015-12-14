@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *createdDatetime;
-@property (nonatomic, strong) NSString *internalBaseClassIdentifier;
+@property (nonatomic, strong) NSString *volunteerIdentifier;
 @property (nonatomic, strong) NSString *centerId;
 @property (nonatomic, strong) NSArray *userRoles;
 @property (nonatomic, strong) NSString *username;
