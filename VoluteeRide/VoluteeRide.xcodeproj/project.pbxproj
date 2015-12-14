@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A764F43C1C1E6EB000521988 /* VRRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = A764F43B1C1E6EB000521988 /* VRRequestor.m */; };
+		A764F4451C1E7EC200521988 /* JKCenterLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A764F4401C1E7EC200521988 /* JKCenterLocation.m */; };
+		A764F4461C1E7EC200521988 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A764F4421C1E7EC200521988 /* Location.m */; };
+		A764F4471C1E7EC200521988 /* PickUpLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = A764F4441C1E7EC200521988 /* PickUpLocations.m */; };
 		A780C0001BF93BB90094CBBD /* MiscViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A780BFFF1BF93BB90094CBBD /* MiscViewController.m */; };
 		A79B1DD51C02769B00923902 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DD41C02769B00923902 /* RegistrationViewController.m */; };
 		A79B1DEB1C028AEE00923902 /* OwnedVehicles.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DE11C028AEE00923902 /* OwnedVehicles.m */; };
@@ -42,6 +46,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A764F43A1C1E6EB000521988 /* VRRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRRequestor.h; sourceTree = "<group>"; };
+		A764F43B1C1E6EB000521988 /* VRRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRRequestor.m; sourceTree = "<group>"; };
+		A764F43E1C1E7EC200521988 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		A764F43F1C1E7EC200521988 /* JKCenterLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCenterLocation.h; sourceTree = "<group>"; };
+		A764F4401C1E7EC200521988 /* JKCenterLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCenterLocation.m; sourceTree = "<group>"; };
+		A764F4411C1E7EC200521988 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		A764F4421C1E7EC200521988 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		A764F4431C1E7EC200521988 /* PickUpLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickUpLocations.h; sourceTree = "<group>"; };
+		A764F4441C1E7EC200521988 /* PickUpLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickUpLocations.m; sourceTree = "<group>"; };
 		A780BFFE1BF93BB90094CBBD /* MiscViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiscViewController.h; sourceTree = "<group>"; };
 		A780BFFF1BF93BB90094CBBD /* MiscViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiscViewController.m; sourceTree = "<group>"; };
 		A79B1DD31C02769B00923902 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
@@ -101,9 +114,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A764F4391C1E6EB000521988 /* Reqestor */ = {
+			isa = PBXGroup;
+			children = (
+				A764F43A1C1E6EB000521988 /* VRRequestor.h */,
+				A764F43B1C1E6EB000521988 /* VRRequestor.m */,
+			);
+			name = Reqestor;
+			path = VoluteeRide/Reqestor;
+			sourceTree = "<group>";
+		};
+		A764F43D1C1E7EC200521988 /* JKCenterLocation */ = {
+			isa = PBXGroup;
+			children = (
+				A764F43E1C1E7EC200521988 /* DataModels.h */,
+				A764F43F1C1E7EC200521988 /* JKCenterLocation.h */,
+				A764F4401C1E7EC200521988 /* JKCenterLocation.m */,
+				A764F4411C1E7EC200521988 /* Location.h */,
+				A764F4421C1E7EC200521988 /* Location.m */,
+				A764F4431C1E7EC200521988 /* PickUpLocations.h */,
+				A764F4441C1E7EC200521988 /* PickUpLocations.m */,
+			);
+			path = JKCenterLocation;
+			sourceTree = "<group>";
+		};
 		A79B1DDE1C028AEE00923902 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A764F43D1C1E7EC200521988 /* JKCenterLocation */,
 				A79B1DDF1C028AEE00923902 /* OwnedVehicles */,
 				A79B1DE21C028AEE00923902 /* Registration */,
 				A79B1DE51C028AEE00923902 /* RideSeeker */,
@@ -152,8 +190,9 @@
 		A7D607511BDD866000FA0E9A = {
 			isa = PBXGroup;
 			children = (
-				A7D607931BDDBE1500FA0E9A /* ViewControllers */,
 				A79B1DDE1C028AEE00923902 /* Model */,
+				A764F4391C1E6EB000521988 /* Reqestor */,
+				A7D607931BDDBE1500FA0E9A /* ViewControllers */,
 				A7D6075C1BDD866000FA0E9A /* VoluteeRide */,
 				A7D607761BDD866000FA0E9A /* VoluteeRideTests */,
 				A7D607811BDD866000FA0E9A /* VoluteeRideUITests */,
@@ -425,14 +464,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A764F43C1C1E6EB000521988 /* VRRequestor.m in Sources */,
+				A764F4451C1E7EC200521988 /* JKCenterLocation.m in Sources */,
 				A79B1DEB1C028AEE00923902 /* OwnedVehicles.m in Sources */,
 				A7FE69C21BF963EE0028C9F4 /* LoginTableViewController.m in Sources */,
 				A79B1DED1C028AEE00923902 /* RideSeeker.m in Sources */,
 				A79B1DEC1C028AEE00923902 /* Registration.m in Sources */,
 				A7D607621BDD866000FA0E9A /* AppDelegate.m in Sources */,
 				A79B1DEE1C028AEE00923902 /* Volunteer.m in Sources */,
+				A764F4471C1E7EC200521988 /* PickUpLocations.m in Sources */,
 				A79B1DD51C02769B00923902 /* RegistrationViewController.m in Sources */,
 				A7D6075F1BDD866000FA0E9A /* main.m in Sources */,
+				A764F4461C1E7EC200521988 /* Location.m in Sources */,
 				A780C0001BF93BB90094CBBD /* MiscViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,9 @@
 //
 
 #import "RegistrationViewController.h"
+#import "VRRequestor.h"
+#import "JKCenterLocation.h"
+#import "MBProgressHUD.h"
 
 //Personal Info Identifiers
 static NSString *CellIdentifierUsername = @"Username";
@@ -33,6 +36,7 @@ static NSString *CellIdentifierRegister = @"Register";
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *userSegmentControl;
+@property (nonatomic, strong) NSArray *centerLocations;
 
 @end
 
@@ -43,11 +47,15 @@ static NSString *CellIdentifierRegister = @"Register";
     // Do any additional setup after loading the view.
     self.title = @"Registration";
     
+    self.centerLocations = [NSArray array];
+    
     UIColor *backgroundColor = [self.tableView backgroundColor];
     
     [self.view setBackgroundColor:backgroundColor];
     
     self.tableView.contentInset = UIEdgeInsetsMake(-55.0f, 0.0f, 0.0f, 0.0f);
+    
+    [self requestJKLocations];
 
 }
 
@@ -464,6 +472,37 @@ static NSString *CellIdentifierRegister = @"Register";
 */
 - (IBAction)userSegmentedControlndexChanged:(id)sender {
     [self.tableView reloadData];
+}
+
+- (void)requestJKLocations {
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading";
+    
+    __weak RegistrationViewController *weakSelf = self;
+    VRRequestor *vrRequestor = [VRRequestor sharedInstance];
+    [vrRequestor getJKLocations:^(AFHTTPRequestOperation *op, id resp) {
+       
+         [hud hide:YES];;
+        
+        if ([resp isKindOfClass:[NSArray class]]) {
+            [weakSelf setJKCenterLocations:resp];
+        }
+        
+    }];
+}
+
+- (void)setJKCenterLocations:(NSArray*)locations {
+    
+    NSMutableArray *jkLocations = [[NSMutableArray alloc] initWithCapacity:[locations count]];
+    
+    
+    for (int i = 0; i<[locations count]; i++) {
+        JKCenterLocation *centerLocation = [[JKCenterLocation alloc] initWithDictionary:[locations objectAtIndex:i]];
+        [jkLocations addObject:centerLocation];
+    }
+    
+    self.centerLocations = [jkLocations copy];
 }
 
 @end
