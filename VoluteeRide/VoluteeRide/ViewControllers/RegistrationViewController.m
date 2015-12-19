@@ -39,7 +39,6 @@ static NSString *CellIdentifierRegister = @"Register";
 @property (weak, nonatomic) IBOutlet UISegmentedControl *userSegmentControl;
 @property (nonatomic, strong) NSArray *centerLocations;
 @property (nonatomic, strong) UIPickerView *centerLocationsPickerView;
-@property (weak, nonatomic) IBOutlet UITextField *locationTextField;
 
 
 @end
@@ -122,6 +121,7 @@ static NSString *CellIdentifierRegister = @"Register";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell;
+    cell.tag = indexPath.row;
     NSInteger row = [indexPath row];
     NSInteger section = [indexPath section];
     
@@ -547,6 +547,28 @@ static NSString *CellIdentifierRegister = @"Register";
 {
     JKCenterLocation *jkLocation = (JKCenterLocation*)[self.centerLocations objectAtIndex:row];
     return jkLocation.name;
+}
+
+//- (void)textFieldDidBeginEditing:(UITextField *)textField {
+//    UITableViewCell *cell;
+//    
+//    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+//        // Load resources for iOS 6.1 or earlier
+//        cell = (UITableViewCell *) textField.superview.superview;
+//        
+//    } else {
+//        // Load resources for iOS 7 or later
+//        cell = (UITableViewCell *) textField.superview.superview.superview;
+//        // TextField -> UITableVieCellContentView -> (in iOS 7!)ScrollView -> Cell!
+//    }
+//    
+//    [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y - 10);
+    scrollPoint = [self.tableView convertPoint:scrollPoint fromView:textField.superview];
+    [self.tableView setContentOffset:scrollPoint animated:YES];
 }
 
 @end
