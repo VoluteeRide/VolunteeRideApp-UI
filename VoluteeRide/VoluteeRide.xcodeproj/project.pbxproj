@@ -15,8 +15,6 @@
 		A79B1DD51C02769B00923902 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DD41C02769B00923902 /* RegistrationViewController.m */; };
 		A79B1DEB1C028AEE00923902 /* OwnedVehicles.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DE11C028AEE00923902 /* OwnedVehicles.m */; };
 		A79B1DEC1C028AEE00923902 /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DE41C028AEE00923902 /* Registration.m */; };
-		A79B1DED1C028AEE00923902 /* RideSeeker.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DE71C028AEE00923902 /* RideSeeker.m */; };
-		A79B1DEE1C028AEE00923902 /* Volunteer.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DEA1C028AEE00923902 /* Volunteer.m */; };
 		A7D3AD5C1C267CB7002A571F /* JKRegistrationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D3AD5B1C267CB7002A571F /* JKRegistrationTableViewCell.m */; };
 		A7D6075F1BDD866000FA0E9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D6075E1BDD866000FA0E9A /* main.m */; };
 		A7D607621BDD866000FA0E9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D607611BDD866000FA0E9A /* AppDelegate.m */; };
@@ -64,10 +62,6 @@
 		A79B1DE11C028AEE00923902 /* OwnedVehicles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnedVehicles.m; sourceTree = "<group>"; };
 		A79B1DE31C028AEE00923902 /* Registration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Registration.h; sourceTree = "<group>"; };
 		A79B1DE41C028AEE00923902 /* Registration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registration.m; sourceTree = "<group>"; };
-		A79B1DE61C028AEE00923902 /* RideSeeker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RideSeeker.h; sourceTree = "<group>"; };
-		A79B1DE71C028AEE00923902 /* RideSeeker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RideSeeker.m; sourceTree = "<group>"; };
-		A79B1DE91C028AEE00923902 /* Volunteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Volunteer.h; sourceTree = "<group>"; };
-		A79B1DEA1C028AEE00923902 /* Volunteer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Volunteer.m; sourceTree = "<group>"; };
 		A7D3AD5A1C267CB7002A571F /* JKRegistrationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRegistrationTableViewCell.h; sourceTree = "<group>"; };
 		A7D3AD5B1C267CB7002A571F /* JKRegistrationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRegistrationTableViewCell.m; sourceTree = "<group>"; };
 		A7D6075A1BDD866000FA0E9A /* VoluteeRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoluteeRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,8 +141,6 @@
 				A764F43D1C1E7EC200521988 /* JKCenterLocation */,
 				A79B1DDF1C028AEE00923902 /* OwnedVehicles */,
 				A79B1DE21C028AEE00923902 /* Registration */,
-				A79B1DE51C028AEE00923902 /* RideSeeker */,
-				A79B1DE81C028AEE00923902 /* Volunteer */,
 			);
 			name = Model;
 			path = VoluteeRide/Model;
@@ -170,24 +162,6 @@
 				A79B1DE41C028AEE00923902 /* Registration.m */,
 			);
 			path = Registration;
-			sourceTree = "<group>";
-		};
-		A79B1DE51C028AEE00923902 /* RideSeeker */ = {
-			isa = PBXGroup;
-			children = (
-				A79B1DE61C028AEE00923902 /* RideSeeker.h */,
-				A79B1DE71C028AEE00923902 /* RideSeeker.m */,
-			);
-			path = RideSeeker;
-			sourceTree = "<group>";
-		};
-		A79B1DE81C028AEE00923902 /* Volunteer */ = {
-			isa = PBXGroup;
-			children = (
-				A79B1DE91C028AEE00923902 /* Volunteer.h */,
-				A79B1DEA1C028AEE00923902 /* Volunteer.m */,
-			);
-			path = Volunteer;
 			sourceTree = "<group>";
 		};
 		A7D3AD561C1E9ECD002A571F /* CustomViews */ = {
@@ -483,10 +457,8 @@
 				A79B1DEB1C028AEE00923902 /* OwnedVehicles.m in Sources */,
 				A7D3AD5C1C267CB7002A571F /* JKRegistrationTableViewCell.m in Sources */,
 				A7FE69C21BF963EE0028C9F4 /* LoginTableViewController.m in Sources */,
-				A79B1DED1C028AEE00923902 /* RideSeeker.m in Sources */,
 				A79B1DEC1C028AEE00923902 /* Registration.m in Sources */,
 				A7D607621BDD866000FA0E9A /* AppDelegate.m in Sources */,
-				A79B1DEE1C028AEE00923902 /* Volunteer.m in Sources */,
 				A764F4471C1E7EC200521988 /* PickUpLocations.m in Sources */,
 				A79B1DD51C02769B00923902 /* RegistrationViewController.m in Sources */,
 				A7D6075F1BDD866000FA0E9A /* main.m in Sources */,
