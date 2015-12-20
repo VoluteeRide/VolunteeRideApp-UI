@@ -6,11 +6,18 @@
 //  Copyright © 2015 Karim Abdul. All rights reserved.
 //
 
+//Custom Controller & Views Import
 #import "RegistrationViewController.h"
-#import "VRRequestor.h"
-#import "JKCenterLocation.h"
-#import "MBProgressHUD.h"
 #import "JKRegistrationTableViewCell.h"
+#import "MBProgressHUD.h"
+
+// Requestor Import
+#import "VRRequestor.h"
+
+//Data Model Import
+#import "JKCenterLocation.h"
+#import "Registration.h"
+#import "OwnedVehicles.h"
 
 //Personal Info Identifiers
 static NSString *registrationCellIdentifierUsername = @"Username";
@@ -35,11 +42,12 @@ static NSString *registrationCellIdentifierRegister = @"Register";
 
 @interface RegistrationViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
-//@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *userSegmentControl;
 @property (nonatomic, strong) NSArray *centerLocations;
 @property (nonatomic, strong) UIPickerView *centerLocationsPickerView;
 @property (nonatomic, assign) CGRect tableViewRect;
+@property (nonatomic, strong) Registration *userRegistration;
+@property (nonatomic, strong) OwnedVehicles *userOwnedVehicle;
 
 @end
 
@@ -142,7 +150,7 @@ static NSString *registrationCellIdentifierRegister = @"Register";
                         cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierUsername];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                    
+                    cell.centerLocationTextField.delegate = self;
                     break;
                     
                 case 1:
@@ -521,12 +529,12 @@ static NSString *registrationCellIdentifierRegister = @"Register";
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
-    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y - 10);
+    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y);
     scrollPoint = [self.tableView convertPoint:scrollPoint fromView:textField.superview];
     [self.tableView setContentOffset:scrollPoint animated:YES];
 }
 
--(BOOL)textFieldShouldReturn:(UITextField*)textField {
+- (BOOL)textFieldShouldReturn:(UITextField*)textField {
     
     if ([textField.placeholder isEqualToString:@"Phone Number"] && self.userSegmentControl.selectedSegmentIndex == 0) {
         [self jumpToNextTextField:textField withTag:100];
@@ -572,6 +580,71 @@ static NSString *registrationCellIdentifierRegister = @"Register";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     NSLog(@"%li",(long)indexPath.row);
     NSLog(@"%li",(long)indexPath.section);
+}
+
+#pragma mark - Lazy Loading
+
+- (Registration*)userRegistration {
+    
+    if (!_userRegistration) {
+        _userRegistration = [[Registration alloc] init];
+    }
+    return _userRegistration;
+}
+
+- (OwnedVehicles*)userOwnedVehicle {
+    
+    if (!_userOwnedVehicle) {
+        _userOwnedVehicle = [[OwnedVehicles alloc] init];
+    }
+    return _userOwnedVehicle;
+}
+
+#pragma mark - Mapping Model
+
+- (IBAction)editingChanged:(id)sender {
+    
+    UITextField *textField = (UITextField*)sender;
+    
+    switch (textField.tag) {
+        case 1:
+            self.userRegistration.username = textField.text;
+            break;
+        case 2:
+            self.userRegistration.password = textField.text;
+            break;
+        case 3:
+            self.userRegistration.firstName = textField.text;
+            break;
+        case 4:
+            self.userRegistration.lastName = textField.text;
+            break;
+        case 5:
+            self.userRegistration.email = textField.text;
+            break;
+        case 6:
+            self.userRegistration.phone = textField.text;
+            break;
+        case 7:
+            self.userOwnedVehicle.make = textField.text;
+            break;
+        case 8:
+            self.userOwnedVehicle.model = textField.text;
+            break;
+        case 9:
+            self.userOwnedVehicle.totalRiderCapacity = [textField.text doubleValue];
+            break;
+        case 10:
+            self.userOwnedVehicle.type = textField.text;
+            break;
+        case 11:
+            self.userOwnedVehicle.color = textField.text;
+            break;
+
+        default:
+            break;
+    }
+
 }
 
 @end

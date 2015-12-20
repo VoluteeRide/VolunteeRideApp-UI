@@ -192,7 +192,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Username" id="s5v-yg-4hP" userLabel="Username">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Username" id="s5v-yg-4hP" userLabel="Username" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s5v-yg-4hP" id="k2S-Gf-jrL">
@@ -202,7 +202,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rN4-0X-vfh">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="oHy-Jp-ygl"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="Ays-zq-HHV"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -212,8 +216,11 @@
                                         <constraint firstItem="rN4-0X-vfh" firstAttribute="leading" secondItem="k2S-Gf-jrL" secondAttribute="leadingMargin" constant="8" id="qu2-NS-PBJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="rN4-0X-vfh" id="dcs-Tc-ihc"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Password" id="cG8-9E-9Wl">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Password" id="cG8-9E-9Wl" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="201.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cG8-9E-9Wl" id="CC5-d4-a2O">
@@ -223,7 +230,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UWW-j8-09l">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="GJh-Ag-xKh"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="zeT-Gd-LyS"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -233,8 +244,11 @@
                                         <constraint firstAttribute="trailing" secondItem="UWW-j8-09l" secondAttribute="trailing" constant="33" id="twj-sT-Oju"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="UWW-j8-09l" id="r8E-Wn-js5"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Firstname" id="fTN-um-ecw" userLabel="Firstname">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Firstname" id="fTN-um-ecw" userLabel="Firstname" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="245.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fTN-um-ecw" id="2Fv-dI-dxe">
@@ -244,7 +258,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Firstname" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6ys-Og-W9Q" userLabel="Firstname">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="yes" returnKeyType="next"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="EUd-62-7WW"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="QTC-5n-1ra"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -254,8 +272,11 @@
                                         <constraint firstAttribute="trailing" secondItem="6ys-Og-W9Q" secondAttribute="trailing" constant="33" id="uK9-CN-y7J"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="6ys-Og-W9Q" id="Wdp-wF-JMu"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Lastname" id="efL-J3-ztb" userLabel="Lastname">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Lastname" id="efL-J3-ztb" userLabel="Lastname" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="289.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efL-J3-ztb" id="74f-5t-wtU">
@@ -265,7 +286,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lastname" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mOE-06-hQe">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="yes" returnKeyType="next"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="t3G-ct-qtf"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="foM-WA-8J9"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -275,8 +300,11 @@
                                         <constraint firstItem="mOE-06-hQe" firstAttribute="leading" secondItem="74f-5t-wtU" secondAttribute="leadingMargin" constant="8" id="OIa-Ad-640"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="mOE-06-hQe" id="BJl-B5-HTf"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Email" id="UiK-za-EJf" userLabel="Email">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Email" id="UiK-za-EJf" userLabel="Email" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="333.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UiK-za-EJf" id="Zan-wq-P11">
@@ -286,7 +314,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xzo-Ni-UhA">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="vzU-FO-pEr"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="RFG-kS-dDe"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -296,8 +328,11 @@
                                         <constraint firstAttribute="trailing" secondItem="xzo-Ni-UhA" secondAttribute="trailing" constant="33" id="qJB-bu-jA2"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="xzo-Ni-UhA" id="G7Z-Rn-5ej"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhoneNumber" id="rFt-Ju-ME5" userLabel="PhoneNumber">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhoneNumber" id="rFt-Ju-ME5" userLabel="PhoneNumber" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="377.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rFt-Ju-ME5" id="fVf-vX-LAR">
@@ -307,7 +342,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="haT-At-iHF">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="xsx-5I-wil"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="EQh-dx-Ot9"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -317,8 +356,11 @@
                                         <constraint firstItem="haT-At-iHF" firstAttribute="centerY" secondItem="fVf-vX-LAR" secondAttribute="centerY" id="jL9-JQ-Ayf"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="haT-At-iHF" id="Nr9-Sm-QuD"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Make" id="5jd-Fi-peI" userLabel="Make">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Make" id="5jd-Fi-peI" userLabel="Make" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="421.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5jd-Fi-peI" id="6HI-Co-cpr">
@@ -328,7 +370,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Make" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="D1D-yD-fSH">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="yes" returnKeyType="next"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="ndB-TG-u1P"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="ZPe-gt-7E7"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -338,8 +384,11 @@
                                         <constraint firstItem="D1D-yD-fSH" firstAttribute="top" secondItem="6HI-Co-cpr" secondAttribute="topMargin" constant="-1" id="yrV-bT-h0m"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="D1D-yD-fSH" id="fRo-m3-mYV"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Model" id="uZA-1u-vbR" userLabel="Model">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Model" id="uZA-1u-vbR" userLabel="Model" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="465.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uZA-1u-vbR" id="4aB-vT-xqf">
@@ -350,6 +399,10 @@
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="tl0-61-1RO"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="Rdd-Ad-VEQ"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -359,8 +412,11 @@
                                         <constraint firstItem="qzj-K5-8As" firstAttribute="leading" secondItem="4aB-vT-xqf" secondAttribute="leadingMargin" constant="8" id="yIN-mu-GRB"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="qzj-K5-8As" id="7td-yE-tWy"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Capacity" id="FNz-s9-PPF" userLabel="Capacity">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Capacity" id="FNz-s9-PPF" userLabel="Capacity" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="509.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FNz-s9-PPF" id="aTg-oB-9Q5">
@@ -370,7 +426,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Total Rider Capacity" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ODZ-01-WTd">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="vlq-k8-IM5"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="eOb-sh-UqP"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -380,8 +440,11 @@
                                         <constraint firstAttribute="trailing" secondItem="ODZ-01-WTd" secondAttribute="trailing" constant="33" id="yOL-oh-VnX"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="ODZ-01-WTd" id="9dr-ah-xos"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Type" id="6s4-s0-scX" userLabel="Type">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Type" id="6s4-s0-scX" userLabel="Type" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="553.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6s4-s0-scX" id="nSi-t3-op3">
@@ -391,7 +454,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NBc-4c-AaP">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="bWh-sD-rXN"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="jcJ-Go-Bad"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -401,8 +468,11 @@
                                         <constraint firstAttribute="trailing" secondItem="NBc-4c-AaP" secondAttribute="trailing" constant="33" id="w9P-70-lc3"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="NBc-4c-AaP" id="5gs-pN-Ifq"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Color" id="bEm-ck-8CK" userLabel="Color">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Color" id="bEm-ck-8CK" userLabel="Color" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="597.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bEm-ck-8CK" id="7nu-Fv-IcK">
@@ -412,7 +482,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Color" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SLx-mj-3hg">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="Gwx-HA-Ubw"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="QPR-hP-hZY"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -422,6 +496,9 @@
                                         <constraint firstItem="SLx-mj-3hg" firstAttribute="top" secondItem="7nu-Fv-IcK" secondAttribute="topMargin" constant="-1" id="mcj-FA-NOo"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="centerLocationTextField" destination="SLx-mj-3hg" id="KlM-gH-zss"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JKLocation" id="8ck-h6-WjL" userLabel="JKLocation" customClass="JKRegistrationTableViewCell">
                                 <rect key="frame" x="0.0" y="641.5" width="600" height="44"/>
@@ -433,7 +510,11 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jamat Khana Location" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hsg-24-fEt">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                            <connections>
+                                                <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="mCb-Q3-Y9Q"/>
+                                                <outlet property="delegate" destination="dPf-1B-wPs" id="ZoB-BT-77s"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>

@@ -155,6 +155,13 @@ static NSString *loginCellIdentifierRegistration = @"Registration";
     NSLog(@"%li",(long)indexPath.row);
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y - 10);
+    scrollPoint = [self.tableView convertPoint:scrollPoint fromView:textField.superview];
+    [self.tableView setContentOffset:scrollPoint animated:YES];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
