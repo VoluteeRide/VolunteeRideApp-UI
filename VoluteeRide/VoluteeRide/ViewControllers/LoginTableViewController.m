@@ -8,10 +8,10 @@
 
 #import "LoginTableViewController.h"
 
-static NSString *CellIdentifierEmail = @"Email";
-static NSString *CellIdentifierPassword = @"Password";
-static NSString *CellIdentifierSubmit = @"Submit";
-static NSString *CellIdentifierRegistration = @"Registration";
+static NSString *loginCellIdentifierUsername = @"Username";
+static NSString *loginCellIdentifierPassword = @"Password";
+static NSString *loginCellIdentifierSubmit = @"Submit";
+static NSString *loginCellIdentifierRegistration = @"Registration";
 
 @interface LoginTableViewController ()
 
@@ -71,22 +71,22 @@ static NSString *CellIdentifierRegistration = @"Registration";
         case 0:
             if (indexPath.row == 0) {
                 
-                cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierEmail];
+                cell = [tableView dequeueReusableCellWithIdentifier:loginCellIdentifierUsername];
                 
                 if(!cell)
                 {
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierEmail];
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:loginCellIdentifierUsername];
                 }
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             
             if (indexPath.row == 1) {
                 
-                cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierPassword];
+                cell = [tableView dequeueReusableCellWithIdentifier:loginCellIdentifierPassword];
                 
                 if(!cell)
                 {
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPassword];
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:loginCellIdentifierPassword];
                 }
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
@@ -96,11 +96,11 @@ static NSString *CellIdentifierRegistration = @"Registration";
         case 1:
             if (indexPath.row == 0) {
                 
-                cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSubmit];
+                cell = [tableView dequeueReusableCellWithIdentifier:loginCellIdentifierSubmit];
                 
                 if(!cell)
                 {
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierSubmit];
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:loginCellIdentifierSubmit];
                 }
             }
             
@@ -109,11 +109,11 @@ static NSString *CellIdentifierRegistration = @"Registration";
         case 2:
             if (indexPath.row == 0) {
                 
-                cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierRegistration];
+                cell = [tableView dequeueReusableCellWithIdentifier:loginCellIdentifierRegistration];
                 
                 if(!cell)
                 {
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierRegistration];
+                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:loginCellIdentifierRegistration];
                 }
             }
             

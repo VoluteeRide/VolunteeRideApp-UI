@@ -13,29 +13,29 @@
 #import "JKRegistrationTableViewCell.h"
 
 //Personal Info Identifiers
-static NSString *CellIdentifierUsername = @"Username";
-static NSString *CellIdentifierPassword = @"Password";
-static NSString *CellIdentifierFirstname = @"Firstname";
-static NSString *CellIdentifierLastname = @"Lastname";
-static NSString *CellIdentifierEmail = @"Email";
-static NSString *CellIdentifierPhoneNumber = @"PhoneNumber";
+static NSString *registrationCellIdentifierUsername = @"Username";
+static NSString *registrationCellIdentifierPassword = @"Password";
+static NSString *registrationCellIdentifierFirstname = @"Firstname";
+static NSString *registrationCellIdentifierLastname = @"Lastname";
+static NSString *registrationCellIdentifierEmail = @"Email";
+static NSString *registrationCellIdentifierPhoneNumber = @"PhoneNumber";
 
 //Vehicle Info Identifiers
-static NSString *CellIdentifierMake = @"Make";
-static NSString *CellIdentifierModel = @"Model";
-static NSString *CellIdentifierCapacity = @"Capacity";
-static NSString *CellIdentifierType = @"Type";
-static NSString *CellIdentifierColor = @"Color";
+static NSString *registrationCellIdentifierMake = @"Make";
+static NSString *registrationCellIdentifierModel = @"Model";
+static NSString *registrationCellIdentifierCapacity = @"Capacity";
+static NSString *registrationCellIdentifierType = @"Type";
+static NSString *registrationCellIdentifierColor = @"Color";
 
 //Jamat Khana Location Idenfifier
-static NSString *CellIdentifierJKLocation = @"JKLocation";
+static NSString *registrationCellIdentifierJKLocation = @"JKLocation";
 
 //Registration Identifier
-static NSString *CellIdentifierRegister = @"Register";
+static NSString *registrationCellIdentifierRegister = @"Register";
 
 @interface RegistrationViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+//@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *userSegmentControl;
 @property (nonatomic, strong) NSArray *centerLocations;
 @property (nonatomic, strong) UIPickerView *centerLocationsPickerView;
@@ -50,19 +50,17 @@ static NSString *CellIdentifierRegister = @"Register";
     // Do any additional setup after loading the view.
     self.title = @"Registration";
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
-    
     self.centerLocations = [NSArray array];
     
-    UIColor *backgroundColor = [self.tableView backgroundColor];
+//    UIColor *backgroundColor = [self.tableView backgroundColor];
+//    
+//    [self.view setBackgroundColor:backgroundColor];
     
-    [self.view setBackgroundColor:backgroundColor];
+//    self.tableView.contentInset = UIEdgeInsetsMake(-55.0f, 0.0f, 0.0f, 0.0f);
     
-    self.tableView.contentInset = UIEdgeInsetsMake(-55.0f, 0.0f, 0.0f, 0.0f);
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
     self.tableViewRect = self.tableView.frame;
     
     [self requestJKLocations];
@@ -138,60 +136,60 @@ static NSString *CellIdentifierRegister = @"Register";
             
             switch (row) {
                 case 0:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierUsername];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierUsername];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierUsername];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierUsername];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 1:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierPassword];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierPassword];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPassword];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierPassword];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 2:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierFirstname];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierFirstname];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierFirstname];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierFirstname];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 3:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierLastname];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierLastname];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierLastname];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierLastname];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 4:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierEmail];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierEmail];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierEmail];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierEmail];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 5:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierPhoneNumber];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierPhoneNumber];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPhoneNumber];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierPhoneNumber];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -206,10 +204,10 @@ static NSString *CellIdentifierRegister = @"Register";
             
             switch (row) {
                 case 0: {
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierJKLocation];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierJKLocation];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.centerLocationTextField.inputView = self.centerLocationsPickerView;
@@ -224,10 +222,10 @@ static NSString *CellIdentifierRegister = @"Register";
             
             switch (row) {
                 case 0:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierRegister];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierRegister];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierRegister];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierRegister];
                     }
                     break;
                     
@@ -245,60 +243,60 @@ static NSString *CellIdentifierRegister = @"Register";
             
             switch (row) {
                 case 0:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierUsername];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierUsername];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierUsername];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierUsername];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 1:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierPassword];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierPassword];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPassword];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierPassword];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 2:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierFirstname];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierFirstname];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierFirstname];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierFirstname];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 3:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierLastname];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierLastname];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierLastname];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierLastname];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 4:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierEmail];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierEmail];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierEmail];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierEmail];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 5:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierPhoneNumber];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierPhoneNumber];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPhoneNumber];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierPhoneNumber];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -313,50 +311,50 @@ static NSString *CellIdentifierRegister = @"Register";
             
             switch (row) {
                 case 0:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierMake];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierMake];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierMake];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierMake];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 1:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierModel];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierModel];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierModel];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierModel];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 2:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierCapacity];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierCapacity];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierCapacity];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierCapacity];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 3:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierType];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierType];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierType];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierType];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
                     break;
                     
                 case 4:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierColor];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierColor];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierColor];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierColor];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -371,10 +369,10 @@ static NSString *CellIdentifierRegister = @"Register";
             
             switch (row) {
                 case 0:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierJKLocation];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierJKLocation];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.centerLocationTextField.inputView = self.centerLocationsPickerView;
@@ -391,10 +389,10 @@ static NSString *CellIdentifierRegister = @"Register";
             
             switch (row) {
                 case 0:
-                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierRegister];
+                    cell = [tableView dequeueReusableCellWithIdentifier:registrationCellIdentifierRegister];
                     
                     if(!cell) {
-                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierRegister];
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:registrationCellIdentifierRegister];
                     }
                     break;
                     
@@ -573,10 +571,7 @@ static NSString *CellIdentifierRegister = @"Register";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     NSLog(@"%li",(long)indexPath.row);
-}
-
-- (IBAction)registerUser:(id)sender {
-    NSLog(@"%@",sender);
+    NSLog(@"%li",(long)indexPath.section);
 }
 
 @end
