@@ -1,14 +1,14 @@
 //
-//  JKCenterLocationTableViewCell.m
+//  JKRegistrationTableViewCell.m
 //  VoluteeRide
 //
-//  Created by Karim Abdul on 12/14/15.
+//  Created by Karim Abdul on 12/20/15.
 //  Copyright © 2015 Karim Abdul. All rights reserved.
 //
 
-#import "JKCenterLocationTableViewCell.h"
+#import "JKRegistrationTableViewCell.h"
 
-@implementation JKCenterLocationTableViewCell
+@implementation JKRegistrationTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

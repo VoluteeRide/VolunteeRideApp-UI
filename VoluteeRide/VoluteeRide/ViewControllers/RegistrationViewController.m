@@ -10,7 +10,7 @@
 #import "VRRequestor.h"
 #import "JKCenterLocation.h"
 #import "MBProgressHUD.h"
-#import "JKCenterLocationTableViewCell.h"
+#import "JKRegistrationTableViewCell.h"
 
 //Personal Info Identifiers
 static NSString *CellIdentifierUsername = @"Username";
@@ -33,13 +33,13 @@ static NSString *CellIdentifierJKLocation = @"JKLocation";
 //Registration Identifier
 static NSString *CellIdentifierRegister = @"Register";
 
-@interface RegistrationViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@interface RegistrationViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *userSegmentControl;
 @property (nonatomic, strong) NSArray *centerLocations;
 @property (nonatomic, strong) UIPickerView *centerLocationsPickerView;
-
+@property (nonatomic, assign) CGRect tableViewRect;
 
 @end
 
@@ -50,6 +50,12 @@ static NSString *CellIdentifierRegister = @"Register";
     // Do any additional setup after loading the view.
     self.title = @"Registration";
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
     self.centerLocations = [NSArray array];
     
     UIColor *backgroundColor = [self.tableView backgroundColor];
@@ -57,6 +63,7 @@ static NSString *CellIdentifierRegister = @"Register";
     [self.view setBackgroundColor:backgroundColor];
     
     self.tableView.contentInset = UIEdgeInsetsMake(-55.0f, 0.0f, 0.0f, 0.0f);
+    self.tableViewRect = self.tableView.frame;
     
     [self requestJKLocations];
 
@@ -68,6 +75,7 @@ static NSString *CellIdentifierRegister = @"Register";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
     if (self.userSegmentControl.selectedSegmentIndex == 0) {
         return 3;
     } else if (self.userSegmentControl.selectedSegmentIndex == 1 || self.userSegmentControl.selectedSegmentIndex == 2) {
@@ -120,7 +128,7 @@ static NSString *CellIdentifierRegister = @"Register";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell;
+    JKRegistrationTableViewCell *cell;
     cell.tag = indexPath.row;
     NSInteger row = [indexPath row];
     NSInteger section = [indexPath section];
@@ -132,9 +140,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 0:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierUsername];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierUsername];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierUsername];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -143,9 +150,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 1:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierPassword];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPassword];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPassword];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -154,9 +160,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 2:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierFirstname];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierFirstname];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierFirstname];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -165,9 +170,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 3:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierLastname];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierLastname];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierLastname];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -176,9 +180,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 4:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierEmail];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierEmail];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierEmail];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -187,9 +190,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 5:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierPhoneNumber];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPhoneNumber];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPhoneNumber];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -203,23 +205,16 @@ static NSString *CellIdentifierRegister = @"Register";
         else if (section == 1) {
             
             switch (row) {
-                case 0:{
-                    JKCenterLocationTableViewCell *jkLocationTableViewCell;
-                    jkLocationTableViewCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
+                case 0: {
+                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
                     
-                    if(!cell)
-                    {
-                        JKCenterLocationTableViewCell *jkLocationTableViewCell = [[JKCenterLocationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
-                        jkLocationTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-                        
-                        
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
                     }
-                    jkLocationTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-                    jkLocationTableViewCell.centerLocationTextField.inputView = self.centerLocationsPickerView;
-                    return jkLocationTableViewCell;
-                }
-                    
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.centerLocationTextField.inputView = self.centerLocationsPickerView;
                     break;
+                }
                     
                 default:
                     break;
@@ -231,12 +226,9 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 0:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierRegister];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierRegister];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierRegister];
                     }
-                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                    
                     break;
                     
                 default:
@@ -255,9 +247,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 0:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierUsername];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierUsername];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierUsername];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -266,9 +257,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 1:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierPassword];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPassword];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPassword];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -277,9 +267,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 2:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierFirstname];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierFirstname];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierFirstname];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -288,9 +277,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 3:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierLastname];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierLastname];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierLastname];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -299,9 +287,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 4:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierEmail];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierEmail];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierEmail];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -310,9 +297,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 5:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierPhoneNumber];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPhoneNumber];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierPhoneNumber];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -329,9 +315,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 0:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierMake];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierMake];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierMake];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -340,9 +325,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 1:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierModel];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierModel];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierModel];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -351,9 +335,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 2:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierCapacity];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierCapacity];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierCapacity];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -362,9 +345,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 3:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierType];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierType];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierType];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -373,9 +355,8 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 4:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierColor];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierColor];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierColor];
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
@@ -389,21 +370,15 @@ static NSString *CellIdentifierRegister = @"Register";
         else if (section == 2) {
             
             switch (row) {
-                case 0: {
-                    JKCenterLocationTableViewCell *jkLocationTableViewCell;
-                    jkLocationTableViewCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
+                case 0:
+                    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierJKLocation];
                     
-                    if(!cell)
-                    {
-                        JKCenterLocationTableViewCell *jkLocationTableViewCell = [[JKCenterLocationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
-                        jkLocationTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierJKLocation];
                     }
-                    jkLocationTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-                    jkLocationTableViewCell.centerLocationTextField.inputView = self.centerLocationsPickerView;
-                    return jkLocationTableViewCell;
-                }
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.centerLocationTextField.inputView = self.centerLocationsPickerView;
+                
                     break;
                     
                 default:
@@ -418,12 +393,9 @@ static NSString *CellIdentifierRegister = @"Register";
                 case 0:
                     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierRegister];
                     
-                    if(!cell)
-                    {
-                        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierRegister];
+                    if(!cell) {
+                        cell = [[JKRegistrationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifierRegister];
                     }
-                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                    
                     break;
                     
                 default:
@@ -438,8 +410,8 @@ static NSString *CellIdentifierRegister = @"Register";
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
     NSString *sectionName = @"";
     
     if (self.userSegmentControl.selectedSegmentIndex == 0) {
@@ -543,32 +515,68 @@ static NSString *CellIdentifierRegister = @"Register";
 }
 
 // The data to return for the row and component (column) that's being passed in
-- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
     JKCenterLocation *jkLocation = (JKCenterLocation*)[self.centerLocations objectAtIndex:row];
     return jkLocation.name;
 }
 
-//- (void)textFieldDidBeginEditing:(UITextField *)textField {
-//    UITableViewCell *cell;
-//    
-//    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-//        // Load resources for iOS 6.1 or earlier
-//        cell = (UITableViewCell *) textField.superview.superview;
-//        
-//    } else {
-//        // Load resources for iOS 7 or later
-//        cell = (UITableViewCell *) textField.superview.superview.superview;
-//        // TextField -> UITableVieCellContentView -> (in iOS 7!)ScrollView -> Cell!
-//    }
-//    
-//    [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-//}
-
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
     CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y - 10);
     scrollPoint = [self.tableView convertPoint:scrollPoint fromView:textField.superview];
     [self.tableView setContentOffset:scrollPoint animated:YES];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*)textField {
+    
+    if ([textField.placeholder isEqualToString:@"Phone Number"] && self.userSegmentControl.selectedSegmentIndex == 0) {
+        [self jumpToNextTextField:textField withTag:100];
+        return NO;
+    }
+    
+    else if ([textField.placeholder isEqualToString:@"Color"] && self.userSegmentControl.selectedSegmentIndex == 1) {
+        [self jumpToNextTextField:textField withTag:100];
+        return NO;
+    }
+
+    
+    NSInteger nextTag = textField.tag + 1;
+    [self jumpToNextTextField:textField withTag:nextTag];
+    return NO;
+}
+
+- (void)jumpToNextTextField:(UITextField *)textField withTag:(NSInteger)tag {
+    
+    // Gets the next responder from the view. Here we use self.view because we are searching for controls with
+    // a specific tag, which are not subviews of a specific views, because each textfield belongs to the
+    // content view of a static table cell.
+    //
+    // In other cases may be more convenient to use textField.superView, if all textField belong to the same view.
+    UIResponder *nextResponder = [self.view viewWithTag:tag];
+    
+    if ([nextResponder isKindOfClass:[UITextField class]]) {
+        // If there is a next responder and it is a textfield, then it becomes first responder.
+        [nextResponder becomeFirstResponder];
+    }
+    else {
+        // If there is not then removes the keyboard.
+        [textField resignFirstResponder];
+    }
+}
+
+- (void)dismissKeyboard {
+    
+    [self.view endEditing:YES];
+    //[self.tableView setContentOffset:CGPointZero animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
+    NSLog(@"%li",(long)indexPath.row);
+}
+
+- (IBAction)registerUser:(id)sender {
+    NSLog(@"%@",sender);
 }
 
 @end

@@ -17,7 +17,7 @@
 		A79B1DEC1C028AEE00923902 /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DE41C028AEE00923902 /* Registration.m */; };
 		A79B1DED1C028AEE00923902 /* RideSeeker.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DE71C028AEE00923902 /* RideSeeker.m */; };
 		A79B1DEE1C028AEE00923902 /* Volunteer.m in Sources */ = {isa = PBXBuildFile; fileRef = A79B1DEA1C028AEE00923902 /* Volunteer.m */; };
-		A7D3AD591C1E9EF9002A571F /* JKCenterLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D3AD581C1E9EF9002A571F /* JKCenterLocationTableViewCell.m */; };
+		A7D3AD5C1C267CB7002A571F /* JKRegistrationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D3AD5B1C267CB7002A571F /* JKRegistrationTableViewCell.m */; };
 		A7D6075F1BDD866000FA0E9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D6075E1BDD866000FA0E9A /* main.m */; };
 		A7D607621BDD866000FA0E9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D607611BDD866000FA0E9A /* AppDelegate.m */; };
 		A7D607681BDD866000FA0E9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7D607661BDD866000FA0E9A /* Main.storyboard */; };
@@ -68,8 +68,8 @@
 		A79B1DE71C028AEE00923902 /* RideSeeker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RideSeeker.m; sourceTree = "<group>"; };
 		A79B1DE91C028AEE00923902 /* Volunteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Volunteer.h; sourceTree = "<group>"; };
 		A79B1DEA1C028AEE00923902 /* Volunteer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Volunteer.m; sourceTree = "<group>"; };
-		A7D3AD571C1E9EF9002A571F /* JKCenterLocationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCenterLocationTableViewCell.h; sourceTree = "<group>"; };
-		A7D3AD581C1E9EF9002A571F /* JKCenterLocationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCenterLocationTableViewCell.m; sourceTree = "<group>"; };
+		A7D3AD5A1C267CB7002A571F /* JKRegistrationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKRegistrationTableViewCell.h; sourceTree = "<group>"; };
+		A7D3AD5B1C267CB7002A571F /* JKRegistrationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKRegistrationTableViewCell.m; sourceTree = "<group>"; };
 		A7D6075A1BDD866000FA0E9A /* VoluteeRide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoluteeRide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D6075E1BDD866000FA0E9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A7D607601BDD866000FA0E9A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 		A7D3AD561C1E9ECD002A571F /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				A7D3AD571C1E9EF9002A571F /* JKCenterLocationTableViewCell.h */,
-				A7D3AD581C1E9EF9002A571F /* JKCenterLocationTableViewCell.m */,
+				A7D3AD5A1C267CB7002A571F /* JKRegistrationTableViewCell.h */,
+				A7D3AD5B1C267CB7002A571F /* JKRegistrationTableViewCell.m */,
 			);
 			name = CustomViews;
 			path = VoluteeRide/CustomViews;
@@ -481,10 +481,10 @@
 				A764F43C1C1E6EB000521988 /* VRRequestor.m in Sources */,
 				A764F4451C1E7EC200521988 /* JKCenterLocation.m in Sources */,
 				A79B1DEB1C028AEE00923902 /* OwnedVehicles.m in Sources */,
+				A7D3AD5C1C267CB7002A571F /* JKRegistrationTableViewCell.m in Sources */,
 				A7FE69C21BF963EE0028C9F4 /* LoginTableViewController.m in Sources */,
 				A79B1DED1C028AEE00923902 /* RideSeeker.m in Sources */,
 				A79B1DEC1C028AEE00923902 /* Registration.m in Sources */,
-				A7D3AD591C1E9EF9002A571F /* JKCenterLocationTableViewCell.m in Sources */,
 				A7D607621BDD866000FA0E9A /* AppDelegate.m in Sources */,
 				A79B1DEE1C028AEE00923902 /* Volunteer.m in Sources */,
 				A764F4471C1E7EC200521988 /* PickUpLocations.m in Sources */,

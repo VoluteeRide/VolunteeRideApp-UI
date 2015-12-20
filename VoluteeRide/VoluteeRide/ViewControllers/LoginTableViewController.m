@@ -151,6 +151,10 @@ static NSString *CellIdentifierRegistration = @"Registration";
     return sectionName;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
+    NSLog(@"%li",(long)indexPath.row);
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
