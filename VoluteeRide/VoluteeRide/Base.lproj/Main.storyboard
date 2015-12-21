@@ -510,7 +510,7 @@
                                         <textField opaque="NO" clipsSubviews="YES" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jamat Khana Location" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hsg-24-fEt">
                                             <rect key="frame" x="16" y="7" width="551" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             <connections>
                                                 <action selector="editingChanged:" destination="dPf-1B-wPs" eventType="editingChanged" id="mCb-Q3-Y9Q"/>
                                                 <outlet property="delegate" destination="dPf-1B-wPs" id="ZoB-BT-77s"/>

@@ -48,6 +48,10 @@ static NSString *registrationCellIdentifierRegister = @"Register";
 @property (nonatomic, assign) CGRect tableViewRect;
 @property (nonatomic, strong) Registration *userRegistration;
 @property (nonatomic, strong) OwnedVehicles *userOwnedVehicle;
+@property (nonatomic, strong) UIToolbar *toolBar;
+@property (nonatomic, assign) NSInteger selectedRow;
+@property (nonatomic, strong) JKCenterLocation *selectedJKLocation;
+@property (nonatomic, strong) UITextField *jkLocationTextField;
 
 @end
 
@@ -65,6 +69,14 @@ static NSString *registrationCellIdentifierRegister = @"Register";
 //    [self.view setBackgroundColor:backgroundColor];
     
 //    self.tableView.contentInset = UIEdgeInsetsMake(-55.0f, 0.0f, 0.0f, 0.0f);
+    
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+//                                   initWithTarget:self
+//                                   action:@selector(dismissKeyboard)];
+//    
+//    [self.view addGestureRecognizer:tap];
+    
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -219,6 +231,9 @@ static NSString *registrationCellIdentifierRegister = @"Register";
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.centerLocationTextField.inputView = self.centerLocationsPickerView;
+                    cell.centerLocationTextField.inputAccessoryView = self.toolBar;
+                    self.jkLocationTextField = cell.centerLocationTextField;
+                    
                     break;
                 }
                     
@@ -384,6 +399,7 @@ static NSString *registrationCellIdentifierRegister = @"Register";
                     }
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.centerLocationTextField.inputView = self.centerLocationsPickerView;
+                    self.jkLocationTextField = cell.centerLocationTextField;
                 
                     break;
                     
@@ -512,6 +528,23 @@ static NSString *registrationCellIdentifierRegister = @"Register";
     return _centerLocationsPickerView;
 }
 
+- (UIToolbar*)toolBar {
+    
+    if (!_toolBar) {
+        
+        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+        _toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,0,screenWidth,44)];
+        UIBarButtonItem *barButtonDone = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                          style:UIBarButtonItemStylePlain target:self action:@selector(updateJkLocation:)];
+        
+        UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+
+        barButtonDone.tintColor=[UIColor blueColor];
+        _toolBar.items = @[flexSpace,barButtonDone];
+    }
+    return _toolBar;
+}
+
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
 }
@@ -580,6 +613,15 @@ static NSString *registrationCellIdentifierRegister = @"Register";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     NSLog(@"%li",(long)indexPath.row);
     NSLog(@"%li",(long)indexPath.section);
+    
+    if ((indexPath.section == 2 && indexPath.row == 0) || (indexPath.section == 3 && indexPath.row == 0)) {
+        [self setUserRoles];
+        [self setUserOwnedVehicle];
+        [self registerUser];
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+    }
 }
 
 #pragma mark - Lazy Loading
@@ -644,6 +686,90 @@ static NSString *registrationCellIdentifierRegister = @"Register";
         default:
             break;
     }
+}
+
+- (void)setUserRoles {
+    
+    //Set User Roles
+    NSMutableArray *userRoles = [[NSMutableArray alloc] init];
+    NSString *userRoleRideSeeker = [NSString new];
+    NSString *userRoleVolunteer = [NSString new];
+    
+    if (self.userSegmentControl.selectedSegmentIndex == 0) {
+        userRoleRideSeeker = @"RIDE_SEEKER";
+        [userRoles addObject:userRoleRideSeeker];
+    } else if (self.userSegmentControl.selectedSegmentIndex == 1) {
+        userRoleVolunteer = @"VOLUNTEER";
+        [userRoles addObject:userRoleVolunteer];
+    } else if (self.userSegmentControl.selectedSegmentIndex == 2) {
+        userRoleRideSeeker = @"RIDE_SEEKER";
+        userRoleVolunteer = @"VOLUNTEER";
+        [userRoles addObject:userRoleRideSeeker];
+        [userRoles addObject:userRoleVolunteer];
+    }
+    
+    self.userRegistration.userRoles = userRoles;
+}
+
+- (void)setUserOwnedVehicle {
+    
+    //Set User Vehicle
+    
+    if (self.userSegmentControl.selectedSegmentIndex == 0) {
+        self.userRegistration.ownedVehicles = nil;
+    } else {
+
+        NSMutableArray *userOwnedVehicle = [[NSMutableArray alloc] init];
+        [userOwnedVehicle addObject:self.userOwnedVehicle];
+        
+        self.userRegistration.ownedVehicles = userOwnedVehicle;
+    }
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSLog(@"%li",(long)row);
+    self.selectedRow = row;
+    
+    //[self updateJkLocation:pickerView];
+}
+
+
+- (void)updateJkLocation:(id)sender {
+    
+    [self.view endEditing:YES];
+
+    self.selectedJKLocation = [self.centerLocations objectAtIndex:[self.centerLocationsPickerView selectedRowInComponent:self.selectedRow]];
+    self.userRegistration.centerId = self.selectedJKLocation.centerLocationIdentifier;
+    
+    if (self.jkLocationTextField) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.jkLocationTextField.text = self.selectedJKLocation.name;
+        });
+    }
+}
+
+- (void)registerUser {
+    NSDictionary *registerUser = [self.userRegistration dictionaryRepresentation];
+    NSLog(@"%@",registerUser);
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading";
+    
+    __weak RegistrationViewController *weakSelf = self;
+    VRRequestor *vrRequestor = [VRRequestor sharedInstance];
+    [vrRequestor registerUser:registerUser completed:^(AFHTTPRequestOperation *op, id resp) {
+        
+        [hud hide:YES];;
+        
+        NSLog(@"%@",resp);
+        if ([resp isKindOfClass:[NSError class]]) {
+            NSError *error = (NSError*)resp;
+            NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",ErrorResponse);
+        }
+        
+    }];
+
 
 }
 

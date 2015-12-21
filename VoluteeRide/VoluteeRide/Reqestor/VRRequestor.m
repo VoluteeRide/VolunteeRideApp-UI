@@ -14,6 +14,7 @@ static VRRequestor *_sharedInstance = nil;
 
 @property (nonatomic, strong) NSURL *baseURL;
 @property (nonatomic, strong) NSString *jkCenterString;
+@property (nonatomic, strong) NSString *registerUserString;
 
 @end
 
@@ -46,6 +47,14 @@ static VRRequestor *_sharedInstance = nil;
         _jkCenterString = @"centers";
     }
     return _jkCenterString;
+}
+
+- (NSString*)registerUserString {
+    
+    if (!_registerUserString) {
+        _registerUserString = @"users";
+    }
+    return _registerUserString;
 }
 
 - (void)getJKLocation:(NSString *)centerId completed:(void (^)(AFHTTPRequestOperation *op,id resp))response {
@@ -86,6 +95,37 @@ static VRRequestor *_sharedInstance = nil;
                 response(operation,responseObject);
         });
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (response != nil)
+                response(operation,error);
+        });
+    }];
+}
+
+- (void)registerUser:(NSDictionary *)parameters completed:(void (^)(AFHTTPRequestOperation *op, id resp))response {
+    
+    AFSecurityPolicy *policy = [[AFSecurityPolicy alloc] init];
+    [policy setAllowInvalidCertificates:YES];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"application/json"];
+    [manager setSecurityPolicy:policy];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    NSString *registerUserURL = [NSString stringWithFormat:@"%@/%@", self.baseURL, self.registerUserString];
+    
+    [manager POST:registerUserURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        //        NSLog(@"JSON: %@", responseObject);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (response != nil)
+                response(operation,responseObject);
+        });
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"JSON: %@", error);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (response != nil)
