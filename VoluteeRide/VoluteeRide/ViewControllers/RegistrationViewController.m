@@ -763,9 +763,14 @@ static NSString *registrationCellIdentifierRegister = @"Register";
         
         NSLog(@"%@",resp);
         if ([resp isKindOfClass:[NSError class]]) {
-            NSError *error = (NSError*)resp;
-            NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",ErrorResponse);
+//            NSError *error = (NSError*)resp;
+//            NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+//            NSLog(@"%@",ErrorResponse);
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)op.response;
+            NSLog(@"status code: %li", (long)httpResponse.statusCode);
+        } else {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)op.response;
+            NSLog(@"status code: %li", (long)httpResponse.statusCode);
         }
         
     }];
